@@ -23,6 +23,8 @@
 		<ebean-spring.version>2.8.1</ebean-spring.version>
 		<guava.version>18.0</guava.version>
 		<commons-codec.version>1.10</commons-codec.version>
+		<slf4j.version>1.7.7</slf4j.version>
+		<hibernate.version>4.3.8.Final</hibernate.version>
 	</properties>
 
 	<dependencyManagement>
@@ -93,6 +95,16 @@
 				<version>${mysql.version}</version>
 			</dependency>
 			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-entitymanager</artifactId>
+				<version>${hibernate.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
 				<version>${junit.version}</version>
@@ -132,5 +144,6 @@
 	</build>
 	<modules>
 		<module>ebean-demo</module>
+		<module>spring-hibernate</module>
 	</modules>
 </project>
