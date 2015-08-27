@@ -25,6 +25,8 @@
 		<commons-codec.version>1.10</commons-codec.version>
 		<slf4j.version>1.7.7</slf4j.version>
 		<hibernate.version>4.3.8.Final</hibernate.version>
+		<struts2.version>2.3.20</struts2.version>
+		<servlet.version>2.5</servlet.version>
 	</properties>
 
 	<dependencyManagement>
@@ -94,11 +96,25 @@
 				<artifactId>mysql-connector-java</artifactId>
 				<version>${mysql.version}</version>
 			</dependency>
+			<!-- struts2 -->
+			<dependency>
+				<groupId>org.apache.struts</groupId>
+				<artifactId>struts2-core</artifactId>
+				<version>${struts2.version}</version>
+			</dependency>
+			<!-- slf4j -->
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-log4j12</artifactId>
 				<version>${slf4j.version}</version>
 			</dependency>
+			<!-- servlet -->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>${servlet.version}</version>
+			</dependency>
+			<!-- hibernate -->
 			<dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-entitymanager</artifactId>
@@ -117,8 +133,6 @@
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
@@ -145,5 +159,6 @@
 	<modules>
 		<module>ebean-demo</module>
 		<module>spring-hibernate</module>
+		<module>struts2-mvc</module>
 	</modules>
 </project>
