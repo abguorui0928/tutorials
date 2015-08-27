@@ -27,6 +27,8 @@
 		<hibernate.version>4.3.8.Final</hibernate.version>
 		<struts2.version>2.3.20</struts2.version>
 		<servlet.version>2.5</servlet.version>
+		<lucene.version>4.10.1</lucene.version>
+		<tika.version>1.5</tika.version>
 	</properties>
 
 	<dependencyManagement>
@@ -120,6 +122,32 @@
 				<artifactId>hibernate-entitymanager</artifactId>
 				<version>${hibernate.version}</version>
 			</dependency>
+			<!-- lucene -->
+			<dependency>
+				<groupId>org.apache.lucene</groupId>
+				<artifactId>lucene-core</artifactId>
+				<version>${lucene.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.lucene</groupId>
+				<artifactId>lucene-analyzers-common</artifactId>
+				<version>${lucene.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.lucene</groupId>
+				<artifactId>lucene-queryparser</artifactId>
+				<version>${lucene.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.lucene</groupId>
+				<artifactId>lucene-analyzers-smartcn</artifactId>
+				<version>${lucene.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.tika</groupId>
+				<artifactId>tika-parsers</artifactId>
+				<version>${tika.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
@@ -160,5 +188,6 @@
 		<module>ebean-demo</module>
 		<module>spring-hibernate</module>
 		<module>struts2-mvc</module>
+		<module>lucene</module>
 	</modules>
 </project>
