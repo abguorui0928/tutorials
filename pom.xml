@@ -30,6 +30,7 @@
 		<lucene.version>4.10.1</lucene.version>
 		<tika.version>1.5</tika.version>
 		<spymemcached.version>2.12.0</spymemcached.version>
+		<jgroups.version>3.6.6.Final</jgroups.version>
 	</properties>
 
 	<dependencyManagement>
@@ -160,6 +161,11 @@
 				<artifactId>spymemcached</artifactId>
 				<version>${spymemcached.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.jgroups</groupId>
+				<artifactId>jgroups</artifactId>
+				<version>${jgroups.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<build>
@@ -196,5 +202,7 @@
 		<module>struts2-mvc</module>
 		<module>lucene</module>
 		<module>memcached</module>
+		<module>jdk-core</module>
+		<module>jgroups</module>
 	</modules>
 </project>
