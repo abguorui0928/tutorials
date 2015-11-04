@@ -31,6 +31,7 @@
 		<tika.version>1.5</tika.version>
 		<spymemcached.version>2.12.0</spymemcached.version>
 		<jgroups.version>3.6.6.Final</jgroups.version>
+		<hadoop.version>2.7.1</hadoop.version>
 	</properties>
 
 	<dependencyManagement>
@@ -166,8 +167,60 @@
 				<artifactId>jgroups</artifactId>
 				<version>${jgroups.version}</version>
 			</dependency>
+			<!-- hadoop -->
+			<dependency>
+				<groupId>org.apache.hadoop</groupId>
+				<artifactId>hadoop-common</artifactId>
+				<version>${hadoop.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.hadoop</groupId>
+				<artifactId>hadoop-hdfs</artifactId>
+				<version>${hadoop.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.hadoop</groupId>
+				<artifactId>hadoop-mapreduce-client-common</artifactId>
+				<version>${hadoop.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.hadoop</groupId>
+				<artifactId>hadoop-mapreduce-client-jobclient</artifactId>
+				<version>${hadoop.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.hadoop</groupId>
+				<artifactId>hadoop-mapreduce-client-shuffle</artifactId>
+				<version>${hadoop.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	<repositories>
+		<repository>
+			<id>nexus</id>
+			<name>Team Nexus Repository</name>
+			<url>http://bigone.50izqj.pek2.qingcloud.com:8083/nexus/content/groups/public</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>nexus</id>
+			<name>Team Nexus Repository</name>
+			<url>http://bigone.50izqj.pek2.qingcloud.com:8083/nexus/content/groups/public</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
 	<build>
 		<plugins>
 			<plugin>
@@ -204,5 +257,6 @@
 		<module>memcached</module>
 		<module>jdk-core</module>
 		<module>jgroups</module>
+		<module>hadoop</module>
 	</modules>
 </project>
