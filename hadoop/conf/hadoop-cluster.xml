@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property>
+		<name>fs.defaultFS</name>
+		<value>hdfs://master:8020</value>
+	</property>
+	<property>
+		<name>mapred.job.tracker</name>
+		<value>master:8021</value>
+	</property>
+</configuration>
