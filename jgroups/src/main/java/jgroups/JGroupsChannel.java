@@ -2,13 +2,16 @@ package jgroups;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.List;
 
+import org.jgroups.Address;
 import org.jgroups.JChannel;
+import org.jgroups.MembershipListener;
 import org.jgroups.Message;
 import org.jgroups.ReceiverAdapter;
 import org.jgroups.View;
 
-public class JGroupsChannel extends ReceiverAdapter {
+public class JGroupsChannel extends ReceiverAdapter implements MembershipListener {
 
 	private JChannel channel;
 
@@ -43,7 +46,13 @@ public class JGroupsChannel extends ReceiverAdapter {
 
 	@Override
 	public void viewAccepted(View view) {
-		System.out.println("** view: " + view);
+		List<Address> vector = view.getMembers();
+		System.out.println("view:" + vector.toString());
+	}
+
+	@Override
+	public void suspect(Address mbr) {
+		System.out.println("suspect:" + mbr);
 	}
 
 	public static void main(String[] args) throws Exception {
