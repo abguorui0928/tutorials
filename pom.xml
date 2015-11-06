@@ -13,7 +13,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>4.1.4.RELEASE</spring.version>
-		<spring-data-jpa.version>1.3.2.RELEASE</spring-data-jpa.version>
+		<spring-data-jpa.version>1.9.0.RELEASE</spring-data-jpa.version>
 		<mybatis.version>3.2.2</mybatis.version>
 		<httpcomponents.version>4.3.5</httpcomponents.version>
 		<junit.version>4.11</junit.version>
@@ -32,6 +32,7 @@
 		<spymemcached.version>2.12.0</spymemcached.version>
 		<jgroups.version>3.6.6.Final</jgroups.version>
 		<hadoop.version>2.7.1</hadoop.version>
+		<h2database.version>1.4.187</h2database.version>
 	</properties>
 
 	<dependencyManagement>
@@ -71,6 +72,11 @@
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-tx</artifactId>
 				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-jpa</artifactId>
+				<version>${spring-data-jpa.version}</version>
 			</dependency>
 			<!-- ebean -->
 			<dependency>
@@ -192,6 +198,12 @@
 				<groupId>org.apache.hadoop</groupId>
 				<artifactId>hadoop-mapreduce-client-shuffle</artifactId>
 				<version>${hadoop.version}</version>
+			</dependency>
+			<!-- h2database -->
+			<dependency>
+				<groupId>com.h2database</groupId>
+				<artifactId>h2</artifactId>
+				<version>${h2database.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
