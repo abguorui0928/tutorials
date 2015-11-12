@@ -13,11 +13,11 @@ public class HelloworldAction extends ActionSupport {
 	 */
 	private static final long serialVersionUID = -8842675502521624758L;
 
-	//helloworld.action
+	// helloworld.action/helloworld.do
 	@Override
 	public String execute() throws Exception {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		request.setAttribute("welcome", "hello world!");
-		return "success";
+		return SUCCESS;
 	}
 }
