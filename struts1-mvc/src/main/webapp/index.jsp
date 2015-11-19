@@ -5,8 +5,30 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>struts-mvc</title>
+<script type="text/javascript" src="jquery-1.10.2.js"></script>
 </head>
 <body>
 	<%=request.getAttribute("welcome")%>
+
+	<br />
+	<button id="test">test</button>
 </body>
+<script type="text/javascript">
+	$(function() {
+		$("#test").on("click",
+			function() {
+				$.ajax({
+					url : "http://toutiao.com/api/article/recent/?source=2&count=20&category=news_society&utm_source=toutiao&offset=0&callback=?",
+					dataType : 'jsonp',
+					type : 'get',
+					success : function(data) {
+						alert(data.message);
+					},
+					error : function(XMLHttpRequest, textStatus, errorThrown) {
+						alert(XMLHttpRequest.status);
+					}
+				});
+			});
+	});
+</script>
 </html>
