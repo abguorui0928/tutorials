@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+       default-init-method="init" default-lazy-init="false"
+       default-destroy-method="destroy">
+    <dubbo:application name="server-side"/>
+    <dubbo:registry address="zookeeper://192.168.1.104:2181"/>
+    <dubbo:protocol name="dubbo" port="20880"/>
+    <dubbo:service interface="dubbo.Helloworld" ref="helloworldimpl"/>
+    <bean id="helloworldimpl" class="dubbo.impl.HelloworldImpl"/>
+</beans>

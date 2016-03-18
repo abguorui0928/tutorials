@@ -294,5 +294,7 @@
 		<module>hadoop</module>
 		<module>struts1-mvc</module>
 		<module>spring-mvc</module>
+		<module>flume-ng</module>
+		<module>dubbox</module>
 	</modules>
 </project>
