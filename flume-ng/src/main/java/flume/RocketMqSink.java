@@ -17,8 +17,8 @@ import java.util.Properties;
 /**
  * Created by guor on 2016/3/17.
  */
-public class RocketmqSink extends AbstractSink implements Configurable {
-    private static final Logger LOGGER = LoggerFactory.getLogger(RocketmqSink.class);
+public class RocketMqSink extends AbstractSink implements Configurable {
+    private static final Logger LOGGER = LoggerFactory.getLogger(RocketMqSink.class);
     private DefaultMQProducer defaultMQProducer;
     private Properties parameters;
 

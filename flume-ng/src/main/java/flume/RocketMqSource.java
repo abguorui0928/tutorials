@@ -28,8 +28,8 @@ import java.util.concurrent.Executors;
 /**
  * Created by guor on 2016/3/17.
  */
-public class RocketmqSource extends AbstractSource implements EventDrivenSource, Configurable {
-    private static final Logger LOGGER = LoggerFactory.getLogger(RocketmqSource.class);
+public class RocketMqSource extends AbstractSource implements EventDrivenSource, Configurable {
+    private static final Logger LOGGER = LoggerFactory.getLogger(RocketMqSource.class);
     private DefaultMQPushConsumer defaultMQPushConsumer;
     private Properties parameters;
     private ExecutorService executorService;
@@ -89,7 +89,7 @@ public class RocketmqSource extends AbstractSource implements EventDrivenSource,
                 LOGGER.info("Receive Message [" + new String(message, Charset.forName("UTF-8")) + "]");
             }
             Event event = EventBuilder.withBody(message);
-            RocketmqSource.this.getChannelProcessor().processEvent(event);
+            RocketMqSource.this.getChannelProcessor().processEvent(event);
         }
     }
 }
