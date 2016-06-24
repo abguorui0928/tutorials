@@ -298,5 +298,6 @@
 		<module>spring-mvc</module>
 		<module>flume-ng</module>
 		<module>dubbox</module>
+		<module>kafka</module>
 	</modules>
 </project>
