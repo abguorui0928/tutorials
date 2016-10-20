@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		 http://www.springframework.org/schema/cache
+		http://www.springframework.org/schema/cache/spring-cache-3.1.xsd">
+	<context:annotation-config />
+	<context:component-scan base-package="org.mybatis.spring" />
+
+	<!-- DataSource -->
+	<bean id="mysql_default" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/test" />
+		<property name="user" value="root" />
+		<property name="password" value="dy" />
+	</bean>
+	<bean id="h2_test" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="org.h2.Driver" />
+		<property name="jdbcUrl" value="jdbc:h2:~/test" />
+		<property name="user" value="root" />
+		<property name="password" value="root" />
+	</bean>
+
+	<!-- SqlSessionFactory -->
+	<bean id="sessionFactory_mysql" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="mysql_default" />
+		<property name="configLocation" value="classpath:mybatis/mybatis-config-mysql.xml" />
+	</bean>
+	<bean id="sessionFactory_h2" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="h2_test" />
+		<property name="configLocation" value="classpath:mybatis/mybatis-config-h2.xml" />
+	</bean>
+
+	<!-- MapperScannerConfigurer -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="org.mybatis.spring.event" />
+		<property name="sqlSessionFactoryBeanName" value="sessionFactory_mysql" />
+	</bean>
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="org.mybatis.spring.book" />
+		<property name="sqlSessionFactoryBeanName" value="sessionFactory_h2" />
+	</bean>
+</beans>  
